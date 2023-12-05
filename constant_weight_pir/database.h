@@ -22,10 +22,9 @@
 
 using namespace std;
 
-class Database{
-
-    public:
-
+class Database
+{
+public:
     uint64_t max_item_hex_length;
     uint64_t num_keywords;
 
@@ -34,15 +33,17 @@ class Database{
 
     uint64_t MAX_KEYWORD_BITLENGTH;
 
-    Database(uint64_t __num_keywords, uint64_t __max_item_hex_length, uint64_t __MAX_KEYWORD_BITLENGTH);
+    string csv_filepath;
+    string keyword_column_name;
+    string value_column_name;
+
+    Database(uint64_t __num_keywords, uint64_t __max_item_hex_length, uint64_t __MAX_KEYWORD_BITLENGTH, string csv_filepath, string keyword_column_name, string value_column_name);
+    void read_data_from_csv();
     void generate_some_hex_data();
     uint64_t get_random_query();
     uint64_t get_index_of_keyword(uint64_t keyword);
     vector<string> get_hex_data_by_keyword(uint64_t keyword, uint64_t coefficient_hexlength);
     vector<string> get_hex_data_by_keyword_index(uint64_t keyword_index, uint64_t coefficient_hexlength);
-
-
-
 };
 
 #endif
